@@ -73,8 +73,8 @@ args.lr = lr_list[args.stage]
 
 model = torch.nn.DataParallel(model)
 if args.stage >0:
-    print(str(args.save_pth)+'/task_'+str(args.task)+'_stage_'+str((args.stage)-1))
-    load_file = torch.load(str(args.save_pth)+'/task_'+str(args.task)+'_stage_'+str(args.stage-1), map_location='cpu')
+    print(str(args.save_pth)+'/task_'+str(args.task)+'_stage_'+str((args.stage)-1)+'_out_'+str(out1))
+    load_file = torch.load(str(args.save_pth)+'/task_'+str(args.task)+'_stage_'+str(args.stage-1)+'_out_'+str(out1), map_location='cpu')
     try:
         model.load_state_dict(load_file.state_dict())
     except:
